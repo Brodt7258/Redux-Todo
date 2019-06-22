@@ -9,8 +9,7 @@ const TodoForm = ({ addTodo }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(item);
-    addTodo(e);
+    addTodo(item);
     setItem('');
   };
 

@@ -1,11 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Todo = () => {
+const Todo = ({ value }) => {
+  //console.log(props);
   return (
     <div>
-      Todo
+      {value}
     </div>
   );
 };
 
-export default Todo;
+const mapStateToProps = ({ todos }, { id }) => ({
+  ...todos[id]
+});
+
+export default connect(mapStateToProps)(Todo);
