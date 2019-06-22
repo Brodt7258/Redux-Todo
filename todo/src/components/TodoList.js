@@ -1,8 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const TodoList = () => {
+import Todo from './Todo';
 
+const TodoList = ({ todos }) => {
+  const todoItems = Object.values(todos);
+  return (
+    <ul>
+      {todoItems.length
+      ? todoItems.map(e => <Todo key={e.id} />)
+      : <p>No Todos Yet</p>}
+    </ul>
+  )
 };
 
 const mapStateToProps = ({ todos }) => ({

@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
-const TodoForm = () => {
+import { addTodo } from '../actions';
+
+const TodoForm = ({ addTodo }) => {
 
   const [item, setItem] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(item);
+    addTodo(e);
     setItem('');
   };
 
@@ -26,4 +30,4 @@ const TodoForm = () => {
   );
 };
 
-export default TodoForm;
+export default connect(null, { addTodo })(TodoForm);
